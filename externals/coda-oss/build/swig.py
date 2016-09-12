@@ -182,7 +182,7 @@ def check_swig_version(self, minver=None):
         self.msg('swig version', swigver_full)
     else:
         print(help(self.msg))
-        self.msg('swig version >= %s' % (minver_str,), result, options=swigver_full)
+        self.msg('swig version %s >= %s' % (swigver_full, minver_str,), result)
     return result
 
 def options(opt):
