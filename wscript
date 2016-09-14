@@ -38,6 +38,8 @@ def package(context):
 
     installDir = None
     for subDir in os.listdir(os.getcwd()):
+        if subDir.startswith('six-'):
+            print(os.listdir(subDir))
         if os.path.isdir(subDir) and 'bin' in os.listdir(subDir):
             installDir = subDir
             break
