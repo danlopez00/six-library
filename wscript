@@ -38,8 +38,6 @@ def package(context):
 
     installDir = None
     for subDir in os.listdir(os.getcwd()):
-        if os.path.isdir(subDir):
-            print(os.listdir(subDir))
         if os.path.isdir(subDir) and 'bin' in os.listdir(subDir):
             installDir = subDir
             context.to_log("Setting install dir: " + installDir + "\n");
@@ -58,8 +56,13 @@ def package(context):
     if len(numpyWheel) > 0:
         os.remove(numpyWheel[0])
 
+    assert os.path.exists(installDir)
     context.to_log('Zipping installation\n')
+    assert os.path.exists(installDir)
+    print(os.listdir(os.getcwd()))
     shutil.copy(wheel, os.path.join(installDir, wheel))
+    assert os.path.exists(os.path.join(installDir, wheel))
+    print(os.listdir(os.getcwd()))
     shutil.make_archive('sixInstall', 'zip', None, installDir)
     os.remove(os.path.join(installDir, wheel))
 
