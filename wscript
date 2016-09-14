@@ -42,6 +42,7 @@ def package(context):
             print(os.listdir(subDir))
         if os.path.isdir(subDir) and 'bin' in os.listdir(subDir):
             installDir = subDir
+            context.to_log("Setting install dir: " + installDir + "\n");
             break
 
     if installDir == None:
