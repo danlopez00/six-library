@@ -33,7 +33,7 @@
 #include "import/six.h"
 #include "import/six/sicd.h"
 #include "six/sicd/SICDWriteControl.h"
-#include <numpyutils/numpyutils.h>
+#include "numpyutils/numpyutils.h"
 
 using namespace six::sicd;
 using namespace six;
@@ -305,7 +305,7 @@ def readFromNITF(pathname, schemaPaths=VectorString()):
     void write(PyObject* data, const types::RowCol<size_t>& offset)
     {
         numpyutils::verifyArrayType(data, NPY_COMPLEX64);
-   
+
         // TODO: Force array to be contigious memory
         //       Right now we're requiring the caller to do that
         // TODO: If we get noncontiguous memory, maybe we want to
