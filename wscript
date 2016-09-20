@@ -27,9 +27,6 @@ def configure(conf):
 def build(bld):
     bld.launch_dir = join(bld.launch_dir, 'six')
     bld.recurse(DIRS)
-    buildDir = os.path.basename(bld.getBuildDir())
-    #bld.install_files(os.path.join(buildDir, 'conf'),
-    #    [os.path.join(buildDir, 'six', 'conf', 'setup.py')])
 
 def distclean(context):
     context.recurse(DIRS)
