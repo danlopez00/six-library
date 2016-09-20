@@ -28,7 +28,7 @@ class makewheel(BuildContext):
 
         wheels = glob.glob('*.whl')
         for wheel in wheels:
-            shutil.copyfile(os.path.join(self.env['install_bindir'], wheel),
-                wheel)
+            shutil.move(wheel,
+                os.path.join(self.env['install_bindir'], wheel))
 
 
