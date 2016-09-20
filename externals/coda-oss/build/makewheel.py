@@ -16,9 +16,7 @@ class makewheel(BuildContext):
         if not self.all_envs:
             self.load_envs()
 
-        targetsStr = '--targets=' + self.targets
-
-        shutil.copyfile(os.path.join(self.getBuildDir(), 'six', 'conf',
+        shutil.copyfile(os.path.join(self.env['SETUP_PY_DIR'],
             'setup.py'), 'setup.py')
         self.to_log('Creating wheel\n')
         subprocess.call(['pip', 'wheel', '.', '--wheel-dir', '.', '--no-deps'])
